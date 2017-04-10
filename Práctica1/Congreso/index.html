@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Web de inscripción a un congreso.">
+    <meta name="keywords" content="HTML">
+    <meta name="author" content="Lothar Soto Palma">
+    <title>Inscripción - Congreso</title>
+  </head>
+  <body>
+
+    <header>
+      <h1>Congreso Nacional de ciencias de datos</h1>
+      <h4>29 de Marzo del 2017</h4>
+    </header>
+
+
+    <section>
+      <h2>Inscripción e información</h2>
+      <h3>Información de precios del congreso</h3>
+      <p>El coste para la inscripción al congreso viene recogida en la siguiente
+      tabla:</p>
+      <table>
+        <thead>
+          <tr>
+            <th></th>
+            <th>Estudiantes</th>
+            <th>Profesionales</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>Registro Temprano</th>
+            <td>25 €</td>
+            <td>20 €</td>
+          </tr>
+          <tr>
+            <th>Registro Tardío</th>
+            <td>35 €</td>
+            <td>30 €</td>
+          </tr>
+          <tr>
+            <th>Registro durante el acto</th>
+            <td>45 €</td>
+            <td>40 €</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>Es necesario saber que el número de plazas son limitadas, se ruega que
+      se inscriba con antelación para evitar problemas de aforo.</p>
+    </section>
+
+    <section>
+      <h3>Formulario de inscripción</h3>
+      <fieldset>
+        <legend>Datos personales</legend>
+        <form action="procesar.php" method="post" name="Inscription">
+          <label for="nameField">Nombre:</label>
+          <input type = "text" id = "nameField" name="Inscription" value = "p.e: Juan" />
+          <br>
+          <br>
+          <label for="secondNameField">Apellidos:</label>
+          <input type = "text" id = "secondNameField" name="Inscription" value = "p.e. García" />
+          <br>
+          <br>
+          <label for="mailField">Correo electrónico:</label>
+          <input type = "email" id = "mailField" name="Inscription" value = "p.e. xxx@gmail.com" />
+          <br>
+          <br>
+          <label for="bornDateField">Fecha de nacimiento:</label>
+          <input type = "date" id = "bornDateField" name="Inscription"/>
+          <br>
+          <br>
+          <label for="phoneField">Teléfono:</label>
+          <input type = "tel" id = "phoneField" name="Inscription" value = "p.e. 956939205" />
+          <p>¿Has asistido alguna vez?</p>
+          <label for="yesButton">Si:</label>
+          <input type = "radio" id = "yesButton" name="Inscription" value = " " />
+          <label for="NoButton">No:</label>
+          <input type = "radio" id = "NoButton" name="Inscription" value = " " />
+          <br>
+          <br>
+          <label for="meetingBox">¿Cómo conociste el evento?:</label>
+          <input type="text" id="meetingBox" list="meetList">
+          <datalist id="meetList">
+            <option value="Por correo">
+            <option value="Por otra persona">
+            <option value="Por otra web">
+          </datalist>
+          <br>
+          <br>
+          <input type = "submit" id = "submitButton" name="Inscription" value = "Enviar formulario" />
+          <input type = "reset" id = "resetButton" name="Inscription" value = "Reiniciar formulario" />
+        </form>
+      </fieldset>
+    </section>
+
+    <aside>
+      <section>
+        <h3>Contacto</h3>
+        <p>Es posible contactar con el organizador a través del siguiente correo
+        :</p>
+        <a href="mailto:JLGarcia@gmail.com">JLGarcia@gmail.com</a>
+      </section>
+    </aside>
+
+    <footer>
+      <section>
+        <h3>Organizadores del congreso</h3>
+        <ul>
+          <li><strong>Director y Organizador:</strong> Javier López García</li>
+          <li><strong>Coordinador del congreso:</strong> Ernesto Camino Calle</li>
+          <li><strong>Coordinador del comité científico:</strong> Francisco Sevilla Torres</li>
+        </ul>
+      </section>
+    </footer>
+
+  </body>
+</html>

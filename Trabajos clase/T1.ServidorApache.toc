@@ -1,0 +1,19 @@
+\select@language {spanish}
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}{section.1}
+\contentsline {section}{\numberline {2}\IeC {\textquestiondown }Qu\IeC {\'e} es un servidor apache?}{2}{section.2}
+\contentsline {section}{\numberline {3}Archivos de configuraci\IeC {\'o}n}{2}{section.3}
+\contentsline {section}{\numberline {4}Directivas httpd.conf}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}Directory}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}KeepAlive}{3}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}KeepAliveTimeOut}{3}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}MaxKeepAliveRequests}{4}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}Protocol}{4}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}SetInputFilter}{4}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}SetOutputFilter}{5}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}Timeout}{5}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}VirtualHost}{5}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}Listen}{6}{subsection.4.10}
+\contentsline {subsection}{\numberline {4.11}MaxClients/MaxRequestWorkers}{6}{subsection.4.11}
+\contentsline {subsection}{\numberline {4.12}MinSpareServers/MaxSpareServers}{6}{subsection.4.12}
+\contentsline {subsection}{\numberline {4.13}MaxConnectionsPerChild}{7}{subsection.4.13}

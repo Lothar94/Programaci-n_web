@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<agenda>
+  <profesional>
+    <contacto>
+      <nombre>Peter</nombre>
+      <apellidos></apellidos>
+      <telefono type="Casa">432546576</telefonoCasa>
+      <telefono type="Movil">324547667</telefonoMovil>
+      <telefono type="Trabajo">53246678</telefonoTrabajo>
+      <email>example@hotmail.com</email>
+    </contacto>
+    <contacto>
+      <nombre>Alicia</nombre>
+      <apellidos></apellidos>
+      <telefono type="Casa">432546576</telefonoCasa>
+      <telefono type="Movil">324547667</telefonoMovil>
+      <telefono type="Trabajo">53246678</telefonoTrabajo>
+      <email>example@hotmail.com</email>
+    </contacto>
+  </profesional>
+  <personal>
+    <contacto>
+      <nombre>Fede</nombre>
+      <apellidos></apellidos>
+      <telefono type="Casa">432546576</telefonoCasa>
+      <telefono type="Movil">324547667</telefonoMovil>
+      <email>example@hotmail.com</email>
+    </contacto>
+    <contacto>
+      <nombre>Anna</nombre>
+      <apellidos></apellidos>
+      <telefono type="Casa">432546576</telefonoCasa>
+      <telefono type="Movil">324547667</telefonoMovil>
+      <email>example@hotmail.com</email>
+    </contacto>
+  </personal>
+</agenda>

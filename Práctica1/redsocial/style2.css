@@ -1,0 +1,143 @@
+html {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #f5f4f4;
+  margin:0;
+}
+
+input {
+	border-radius: 5px;
+	border: 2px solid #80c9c6;
+	color:#3f6261;
+	padding: 7px;
+}
+
+#submitButton, #resetButton  {
+	background-color:#c8e5e9;
+	font-size: 80%;
+	transition: all 0.5s ease 0s;
+}
+
+#submitButton:hover, #resetButton:hover  {
+	background-color:#ffffff;
+}
+
+.header_section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid #80c9c6;
+  background-color: #333333;
+  color: #f6f6f6;
+}
+
+.header_section img, .header_section h2, .header_section form, .header_section section {
+  margin: 0 5%;
+  padding: 1%;
+  text-align: center;
+}
+
+.header_section h2 {
+  border: 1px solid #f6f6f6;
+  border-radius:10px;
+ 	transition: all 0.5s ease 0s;
+}
+
+.header_section h2:hover {
+  border: 1px solid #80c9c6;
+  background-color: rgb(200, 229, 233);
+  color: #333333;
+}
+
+nav {
+  text-align: center;
+  background-color:#efefef;
+  padding:1px;
+}
+
+li {
+	display:inline;
+	margin: 0 2%;
+}
+
+li:hover {
+	border-bottom: 4px solid #80c9c6;
+	margin: -5px 2%;
+}
+
+.users_section {
+	overflow:scroll;
+	background-color:#e4e4e4;
+	height: 18vh;
+}
+
+.users_section img{
+	margin: 1% 2% 1% 2%;
+	border-radius:100%;
+}
+
+aside {
+	overflow:scroll;
+	min-height:70vh;
+	height:80vh;
+	float:right;
+	background-color:#e4e4e4;
+}
+
+aside img {
+	display:block;
+	margin: 10% auto 10% auto;
+	border-radius:100%;
+}
+
+.content {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height:65vh;
+}
+
+.content_main {
+  min-height:70vh;
+  height:80vh;
+}
+
+.content article {
+	width:50%;
+	padding:3%;
+}
+
+.articles {
+  display:flex;
+   align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.articles article {
+	padding:0%;
+  width: 47%;
+  border: 1px solid black;
+  border-radius: 3%;
+  margin: 1%;
+}
+
+.flechas {
+	text-align:center;
+}
+
+footer{
+  clear:left;
+  border-top: 5px solid #80c9c6;
+  text-align: center;
+  background-color: #c8e5e9;
+  padding:0.5%;
+}
+
+footer li{
+  display: inline;
+}

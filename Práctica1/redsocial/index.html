@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Web de inscripción a un congreso.">
+    <meta name="keywords" content="HTML">
+    <meta name="author" content="Lothar Soto Palma">
+    <link type="text/css" rel="stylesheet" href="style.css">
+    <title>Inicio</title>
+  </head>
+  <body class="container">
+    <header>
+      <section class="header_section">
+        <img src="./img/logo.png" width="250px" height="100px">
+        <h2>Nombre de la red social</h2>
+        <form action="procesar.php" method="post" name="Inscription">
+          <label for="nameField">Usuario:</label>
+          <br>
+          <input type = "text" id = "nameField" name="Inscription" value = "p.e: Juan" />
+          <br>
+          <br>
+          <label for="secondNameField">Contraseña:</label>
+          <br>
+          <input type = "text" id = "secondNameField" name="Inscription" value = "p.e. García" />
+          <br>
+          <br>
+          <input type = "submit" id = "submitButton" name="Inscription" value = "Enviar formulario" />
+        </form>
+      </section>
+    </header>
+    <main class="index_main">
+      <section>
+        <img src="http://placehold.it/200x150">
+      </section>
+      <section>
+        <fieldset>
+          <legend>Datos personales</legend>
+          <form action="procesar.php" method="post" name="Inscription">
+            <label for="nameField">Nombre:</label>
+            <input type = "text" id = "nameField" name="Inscription" value = "p.e: Juan" />
+            <br>
+            <br>
+            <label for="secondNameField">Apellidos:</label>
+            <input type = "text" id = "secondNameField" name="Inscription" value = "p.e. García" />
+            <br>
+            <br>
+            <label for="mailField">Correo electrónico:</label>
+            <input type = "email" id = "mailField" name="Inscription" value = "p.e. xxx@gmail.com" />
+            <br>
+            <br>
+            <label for="bornDateField">Fecha de nacimiento:</label>
+            <input type = "date" id = "bornDateField" name="Inscription"/>
+            <br>
+            <br>
+            <label for="phoneField">Teléfono:</label>
+            <input type = "tel" id = "phoneField" name="Inscription" value = "p.e. 956939205" />
+            <p>¿Has asistido alguna vez?</p>
+            <label for="yesButton">Si:</label>
+            <input type = "radio" id = "yesButton" name="Inscription" value = " " />
+            <label for="NoButton">No:</label>
+            <input type = "radio" id = "NoButton" name="Inscription" value = " " />
+            <br>
+            <br>
+            <label for="meetingBox">¿Cómo conociste el evento?:</label>
+            <input type="text" id="meetingBox" list="meetList">
+            <datalist id="meetList">
+              <option value="Por correo">
+              <option value="Por otra persona">
+              <option value="Por otra web">
+            </datalist>
+            <br>
+            <br>
+            <input type = "submit" id = "submitButton" name="Inscription" value = "Enviar formulario" />
+            <input type = "reset" id = "resetButton" name="Inscription" value = "Reiniciar formulario" />
+          </form>
+        </fieldset>
+      </section>
+    </main>
+    <footer>
+      <ul>
+        <li><a>Contacto</a></li>
+        <li>-</li>
+        <li><a>Cómo se hizo</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>

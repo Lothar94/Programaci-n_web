@@ -1,0 +1,78 @@
+body{
+  background-color: #e8e7f3;
+}
+
+h1 {
+  background-color:#d3fbbe;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h2 {
+  background-color:#e6befb;
+  color:red;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h3 {
+  background-color:#bedffb;
+  color:green;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h4 {
+  background-color:#fbf1be;
+  color:blue;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h5 {
+  background-color:#fbe5be;
+  color:yellow;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h6 {
+  background-color:#bec8fb;
+  color:pink;
+  border: 1px solid black;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.5s ease 0s;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover{
+  color:white;
+  background-color:black;
+}
+
+a:link {
+  color:white;
+  text-decoration:none;
+}
+
+a:hover {
+  color:white;
+}
+
+ol {
+  list-style-type:upper-roman;
+}
+
+ul {
+  list-style-image:url("gf.gif");
+}

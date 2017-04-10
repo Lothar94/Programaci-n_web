@@ -1,0 +1,287 @@
+%%
+% Modificación de una plantilla de Latex para adaptarla al castellano.
+%%
+
+%%%%%%%%%%%%%%%%%%%%%
+% Thin Sectioned Essay
+% LaTeX Template
+% Version 1.0 (3/8/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original Author:
+% Nicolas Diaz (nsdiaz@uc.cl) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[a4paper, 11pt]{article} % Font size (can be 10pt, 11pt or 12pt) and paper size (remove a4paper for US letter paper)
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{graphicx} % Required for including pictures
+\usepackage[usenames,dvipsnames]{color} % Coloring code
+\usepackage{wrapfig} % Allows in-line images
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{enumitem}
+
+% Imágenes
+\usepackage{graphicx} 
+
+\usepackage{amsmath}
+% para importar svg
+%\usepackage[generate=all]{svgfig}
+
+% sudo apt-get install texlive-lang-spanish
+\usepackage[spanish]{babel} % English language/hyphenation
+\selectlanguage{spanish}
+% Hay que pelearse con babel-spanish para el alineamiento del punto decimal
+\decimalpoint
+\usepackage{dcolumn}
+\newcolumntype{d}[1]{D{.}{\esperiod}{#1}}
+\makeatletter
+\addto\shorthandsspanish{\let\esperiod\es@period@code}
+\makeatother
+
+\usepackage{longtable}
+\usepackage{tabu}
+\usepackage{supertabular}
+
+\usepackage{multicol}
+\newsavebox\ltmcbox
+
+% Para algoritmos
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{amsthm}
+
+% Para matrices
+\usepackage{amsmath}
+
+% Símbolos matemáticos
+\usepackage{amssymb}
+\usepackage{accents}
+\let\oldemptyset\emptyset
+\let\emptyset\varnothing
+
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[section]{placeins} % Para gráficas en su sección.
+\usepackage[T1]{fontenc} % Required for accented characters
+\usepackage{tikz}
+\newenvironment{allintypewriter}{\ttfamily}{\par}
+\setlength{\parindent}{0pt}
+\parskip=8pt
+\linespread{1.05} % Change line spacing here, Palatino benefits from a slight increase by default
+
+\makeatletter
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+\newcommand{\imagen}[2]{\begin{center} \includegraphics[width=90mm]{#1} \\#2 \end{center}}
+\newcommand{\RFC}[1]{\href{https://www.ietf.org/rfc/rfc#1.txt}{RFC-#1}}
+
+\renewcommand{\maketitle}{ % Customize the title - do not edit title and author name here, see the TITLE block below
+\begin{center} % Center align
+{\Huge\@title} % Increase the font size of the title
+\end{center}
+
+\vspace{20pt} % Some vertical space between the title and author name
+
+\begin{flushright} % Right align
+{\large\@author} % Author name
+\\\@date % Date
+
+\vspace{40pt} % Some vertical space between the author block and abstract
+\end{flushright}
+\renewcommand{\baselinestretch}{0.5}
+
+}
+
+
+\usepackage[a4paper]{geometry}
+\geometry{top=2cm, bottom=2cm, left=2.25cm, right=2.25cm}
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+
+\title{\textbf{Tarea 1: Configuración del sevidor de Apache}\\ % Title
+\vspace{20 pt}
+Programación Web} % Subtitle
+
+\author{\textsc{Lothar Soto Palma\\
+lsotpal@correo.ugr.es} % Author
+\\{\textit{Universidad de Granada}}} % Institution
+
+\date{\today} % Date
+
+\newcounter{ndef}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+\section{Introducción}
+En este documento vamos a tratar de seleccionar las 10-15 directivas y las opciones más importantes que incluye apache para su correcto funcionamiento, conoceremos en que archivos incluir estas directivas y además los archivos de configuración que proporciona el servidor. También veremos que módulos usar en el sistema para mejorar su seguridad y desempeñar otros cometidos como la ejecución de páginas webs dinámicas usando lenguajes como php o python. Toda la documentación acerca de las directivas se ha tomado de la web oficial del servidor y la versión 2.4 del mismo.
+\section{¿Qué es un servidor apache?}
+Se trata de un servidor web que sirve haciendo uso del protocolo HTTP, es de código abierto y es posible usarlo tanto en plataformas tipo Unix como en Microsoft Windows y Mac Os X. Comenzo su desarrollo en el año 1995 y se basó en el proyecto anterior NCSA aunque acabó siendo reescrito de forma completa. El proyecto es supervisado por la organización Apache Software Foundation, una organización sin ánimo de lucro creada para dar soporte software a los diversos proyectos que incluyen el nombre de Apache en ellos. \cite{url1}
+
+Apache Software foundation es una organización descentralizada de desarrolladores que trabajan en una serie de proyectos de forma abierta (no son privativos).\cite{url2} 
+
+Es preciso mencionar que el uso de un servidor apache trae ciertas ventajas como que es modular, extensible (como consecuencia de la modularidad) y multi-plataforma.\cite{url1} Algunos de estos módulos son los siguientes:
+\begin{itemize}
+	\item mod\_ssl: Para las comunicaciones seguras vía TLS (HTTPS)
+	\item mod\_php: Para servir páginas dinámicas haciendo uso de PHP.
+	\item mod\_python: Para servir páginas dinámicas haciendo uso de Python.
+	\item ...
+\end{itemize}
+
+\section{Archivos de configuración}
+Los archivos de configuración del sistema son los siguientes: \cite{url3}
+\begin{itemize}
+	\item \textbf{apache2.conf}: Se trata del archivo de configuración principal del servidor, normalmente incluye el archivo httpd.conf y no se debe ser modificado por el usuario. Se encuentra en \textit{/etc/apache2}.
+	\item \textbf{httpd.conf}: Se trata del archivo de configuración principal del servidor a nivel de usuario, en este archivo es donde se encuentran las mayorías de directivas que permiten hacer funcionar apache de una determinada forma especificada normalmente por el usuario. Se encuentra en \textit{/etc/apache2}.
+	\item \textbf{default-server.conf}: Se encuentra en \textit{/etc/apache2} y es archivo en el que se describen las directivas generales a aplicar a los hosts virtuales.
+	\item \textbf{*.conf}: Se encuentra en Se encuentra en \textit{/etc/apache2/vhosts.d} e incluye todos los archivos de configuraciónes de cada host virtual que tengamos en nuestro servidor.
+	\item \textbf{.htaccess}: Se trata del archivo de configuración distribuida, es un fichero especial que permite definir diferentes directivas de configuración para cada directorio sin necesidad de editar el archivo \textit{httpd.conf}
+\end{itemize}
+\section{Directivas httpd.conf}
+	\subsection{Directory}
+		\textbf{Características}:
+		\begin{verbatim}
+				Sintaxis: <Directory directory-path> ... </Directory>
+				Módulo: Core
+		\end{verbatim}
+		\textbf{Descripción}: Se trata de un conjunto de directivas que permiten aplicarse sobre determinados directorios y subdirectorios, suele usarse para restringir rutas en función del nivel de usuario en el sistema.
+	\subsection{KeepAlive}
+		\textbf{Características}:
+		\begin{verbatim}
+				Sintaxis: KeepAlive On | Off
+				Valor por defecto: On
+				Módulo: Core
+		\end{verbatim}
+		\textbf{Descripción}: La directiva sirve para habilitar conexiones HTTP persistentes es decir tener sesiones HTTP abiertas de larga duración que permitan enviar múltiples peticiones a través de una misma conexión TCP, es decir las conexiones keepalive se mantien abiertas tras recibir una peticion del cliente y servirla de forma que la siguiente petición se aprovecha de la conexión que ya estaba abierta. Esto ocasiona que en algunos casos se consiga mejorar en casi un 50\% los tiempos de latencia de archivos html con muchas imágenes. Hay que diferenciar los clientes que usan HTTP/1.0 y HTTP/1.1, para los primeros solo se llevará a cabo una conexión que use keepalive si es solicitado por el mismo, en los segundos todas las conexiones se realizan usando keepalive por defecto a menos que se especifique lo contrario. 
+		
+		Una de las principales ventajas de habilitar esta opción es que no es necesario abrir una conexión para cada elemento de la pagina web, pero ¿Cuánto tiempo debemos mantener una conexión keepalive en el sistema? La respuesta que en mi opinión es más lógica para esto es el tiempo medio necesario para la carga de la web realizando diversas pruebas a través de diferentes velocidades de conexión y variando los clientes. Una web que no contenga muchos elementos multimedia se suele demorar actualmente pocos milisegundos en la carga por lo que podemos hacer el sistema más eficiente en tiempo a la hora de responder peticiones si ajustamos ese parámetro. El parámetro que ajusta esto se denomina KeepAliveTimeOut.
+	\subsection{KeepAliveTimeOut}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: KeepAlive num[s/ms]
+				Valor por defecto: 5 (2.4)
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Es la directiva que controla cuantos segundos el servidor de apache deberá esperar por las peticiones posteriores en una conexión persistente, controla cuanto tiempo estará abierta una conexión tipo keepalive, es posible la especificación del tiempo en milisegundos a partir de la versión 2.3.2 y posteriores añadiendo el prefijo ms, esto también puede hacerse en la directiva timeout. Establecer un valor muy elevado en esta directiva puede provocar problemas de rendimiento en servidores con una gran carga. Pero ahora surge otro problema no podemos mantener infinitas conexiones keepalive simultaneas en el servidor, ya que estas llega un momento en que ya se han usado y son inútiles y aportan más carga al servidor, por lo que se hace necesaria una directiva para controlar el número de conexiones persistentes.
+	\subsection{MaxKeepAliveRequests}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: MaxKeepAliveRequests num
+				Valor por defecto: 100
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Esta directiva nos va a permitir establecer un número limitado de conexiones persistentes entre clientes y el servidor, si se establece el valor 0 en esta directiva se abrirán conexiones de forma ilimitada, pero esto puede llegar a no ser lógico por posibles ataques que pretendan sobrecargar el servidor intentando realizar muchas conexiones simultaneas hasta que el servidor llega a su capacidad máximas (limitación por hardware) y comienza a no poder servir peticiones reales de otros clientes.
+	
+	Es recomendable usar un valor elevado en esta directiva, se recomienda por ejemplo 500 a través de la web \cite{url4} en la sección que explica esta funcionalidad.
+	\subsection{Protocol}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: Protocol protocol
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Esta directiva especifica el protocolo usado para un determinado socket que esté a la escucha de peticiones, esta directiva sirve para conocer que módulo del servidor debe encargarse de gestionar una petición. Normalmente solo se necesita establecer el protocolo  si se está escuchando por los puertos no estándares, por ejemplo el puerto 80 son para las peticiones HTTP y el puerto 443 para las peticiones HTTPS por convenio. Esta directiva puede servir para servir distintos protocolos mediante puertos que no son estándares, aunque también se puede especificar el protocolo haciendo uso de la directiva listen.
+	\subsection{SetInputFilter}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: SetInputFilter filter,...
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Se trata de una directiva muy interesante que nos va a permitir preveer salvarnos de distintos ataques como la inyección de código en nuestro servidor, ya que lo que va a hacer esta opción es establecer uno o más filtros que procesarán las solicitudes enviadas por el cliente además de lo que este envía por entrada con el procedimiento POST. Los filtros pueden definirse en cualquier lugar si se incluye en la directiva AddInputfilter. Pero en caso de que estos filtros sean burlados es posible establecer con la siguiente directiva un nivel más de seguridad.
+	\subsection{SetOutputFilter}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: SetOutputFilter filter,...
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Se trata de un proceso que en lugar de aplicar un filtro en las peticiones de entrada al servidor, trata de analizar la respuesta generada por el mismo mediante uno o más filtros, al igual que en el anterior es posible añadir los filtros a través de la directiva AddOutputFilter. Estos dos procesos de análisis de petición/respuesta podría llegar a descartar muchos de los ataques a los servidores más comunes, en el caso de que pase el primer filtro hay otra posibilidad analizando la salida proporcionada por nuestro servidor.
+	\subsection{Timeout}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: Timeout num [s/ms]
+				Valor por defecto: 60 s
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Es una de las directivas en mi opinión de mayor relevancia puesto que establece un tiempo máximo en el que el servidor debe a realizar diversas tareas antes de descartarlas, algunás de estas tareas son las siguientes:
+	\begin{itemize}
+		\item Cuando se lleva a cabo una lectura de datos enviados por parte del cliente, el tiempo máximo de espera hasta que llegue el paquete TCP si el buffer está vacio.
+		\item Cuando se está escribiendo la respuesta a el cliente por parte del servidor, el tiempo máximo de espera hasta que se reconoce un paquete si el buffer está lleno.
+		\item Diversos módulos para establecer el tiempo máximo de espera para los procesos de filtrado o salida de scripts.
+	\end{itemize}
+	\subsection{VirtualHost}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: <VirtualHost address[:port], ...> [s/ms]
+				Valor por defecto: 60 s
+				Módulo: Core
+	\end{verbatim}
+	\textbf{Descripción}: Se trata de un grupo de directivas relacionadas con los host virtuales, que sirven para almacenar y servir distintas aplicaciones web desde una misma dirección IP, esta directiva te permite establecer el nombre de usuario, la ruta, el nombre del servidor, etc, y además junto con la directiva NameVirtualHost permite hacer la correspondencia entre la dirección IP y los hosts virtuales.
+	
+	Un ejemplo obtenido de la web de apache \cite{url4} es el siguiente:
+	\begin{verbatim}
+		<VirtualHost 10.1.2.3>
+			ServerAdmin webmaster@host.example.com
+			DocumentRoot /www/docs/host.example.com
+			ServerName host.example.com
+			ErrorLog logs/host.example.com-error_log
+			TransferLog logs/host.example.com-access_log
+		</VirtualHost>
+	\end{verbatim}
+	\subsection{Listen}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: Listen [IP][:port] [protocol]
+				Módulo: MPM
+	\end{verbatim}
+	\textbf{Descripción}: Se trata de una ''lista'' de puertos a través de los que el servidor realizará su escucha, como se ha mencionado antes es posible establecer el protocolo por el que se regiran las peticiones y respuestas entre servidor y cliente por ejemplo con esta directiva podemos habilitar puertos diferentes al 443 que escuchen por peticiones HTTPS, está misma directiva podría usarse en lugar de la directiva protocol.
+	\subsection{MaxClients/MaxRequestWorkers}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: MaxRequestWorkers number
+				Módulo: MPM
+	\end{verbatim}
+	\textbf{Descripción}: Es una directiva que se encarga de establecer un límite en el número de peticiones simultaneas que serán procesadas, pero que ocurre con las solicitudes si llegan cuando ya se ha cubrido el límite, estas son puestas en cola una cola cuya longitud se basa en la directiva ListenBackLog. Esto ocurre para servidores hebrados pero para los no hebrados esta directiva se traduce en el máximo número de procesos hijos que pueden ser lanzados para servir las solicitudes. MaxRequestWorkers era llamado MaxClients antes de la versión 2.3.13 aunque aun se sigue pudiendo usar la definición antigua.
+	\subsection{MinSpareServers/MaxSpareServers}
+	\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: MaxSpareThreads number
+				Módulo: MPM
+	\end{verbatim}
+	\textbf{Descripción}: Es la directiva que controla el máximo/mínimo número de hebras del servidor que estarán vacentes o a la espera, el valor por defecto para los módulos worker y event es de 250, para el módulo netware es de 100 y para os2 es de 10.
+	\subsection{MaxConnectionsPerChild}
+		\textbf{Características}:
+	\begin{verbatim}
+				Sintaxis: MaxConnectionsPerChild number
+				Valor por defecto: 0
+				Módulo: MPM
+	\end{verbatim}
+	\textbf{Descripción}: Con esta directiva podemos establecer un límite en el número de conexiones que un único proces hijo del servidor puede gestionar durante su vida, anteriormente se denominaba MaxRequestsPerChild pero este nombre todavía puede usarse. Después de que se gestionen todas las conexiones una vez alcanzado el límite el proceso hijo se elimina, en el caso de que se establezca por defecto como 0 el proceso hijo nunca muere. Establecer a esta directiva un valor diferente de 0 puede producir problemas de consumo de memoria y posible pérdida de memoria en el sistema.   
+
+\begin{thebibliography}{X}
+	\bibitem{url1} \url{https://es.wikipedia.org/wiki/Servidor_HTTP_Apache}
+	\bibitem{url2} \url{https://es.wikipedia.org/wiki/Apache_Software_Foundation}
+	\bibitem{url3} \url{https://es.opensuse.org/SDB:Configuración_archivos_Apache}
+	\bibitem{url4} \url{http://httpd.apache.org/docs/2.4/mod/core.html#timeout}
+	\bibitem{url5} \url{http://systemadmin.es/2008/11/conexiones-keepalive-de-apache}
+	\bibitem{url6} \url{http://httpd.apache.org/docs/2.4/es/mod/}
+	\bibitem{url7} \url{http://httpd.apache.org/docs/2.4/es/mod/mpm_common.html}
+\end{thebibliography}
+
+
+\end{document}

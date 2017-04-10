@@ -1,0 +1,17 @@
+\BOOKMARK [1][-]{section.1}{Introducci\363n}{}% 1
+\BOOKMARK [1][-]{section.2}{\277Qu\351 es un servidor apache?}{}% 2
+\BOOKMARK [1][-]{section.3}{Archivos de configuraci\363n}{}% 3
+\BOOKMARK [1][-]{section.4}{Directivas httpd.conf}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Directory}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{KeepAlive}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{KeepAliveTimeOut}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{MaxKeepAliveRequests}{section.4}% 8
+\BOOKMARK [2][-]{subsection.4.5}{Protocol}{section.4}% 9
+\BOOKMARK [2][-]{subsection.4.6}{SetInputFilter}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.7}{SetOutputFilter}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.8}{Timeout}{section.4}% 12
+\BOOKMARK [2][-]{subsection.4.9}{VirtualHost}{section.4}% 13
+\BOOKMARK [2][-]{subsection.4.10}{Listen}{section.4}% 14
+\BOOKMARK [2][-]{subsection.4.11}{MaxClients/MaxRequestWorkers}{section.4}% 15
+\BOOKMARK [2][-]{subsection.4.12}{MinSpareServers/MaxSpareServers}{section.4}% 16
+\BOOKMARK [2][-]{subsection.4.13}{MaxConnectionsPerChild}{section.4}% 17
