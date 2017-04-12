@@ -15,6 +15,14 @@ input {
 	padding: 7px;
 }
 
+a{
+
+}
+
+a:link {
+	text-decoration:none;
+}
+
 #submitButton, #resetButton  {
 	background-color:#80b1c9;
 	font-size: 80%;
@@ -41,21 +49,22 @@ input {
   text-align: center;
 }
 
-
 .header_section h2 {
+	padding:2%;
   border: 1px solid #f6f6f6;
-  position:absolute;
-  transform: translateX(-50%);
-        left: 50%;
-
+  color: #f6f6f6;
   border-radius:10px;
  	transition: all 0.5s ease 0s;
 }
 
 .header_section h2:hover {
   border: 1px solid #80c9c6;
-  background-color: rgb(200, 229, 233);
+  background-color: #80c9c6;
   color: #333333;
+}
+
+.roboLogo {
+	border-radius: 0px 0px 100px 100px;
 }
 
 nav {
@@ -182,7 +191,8 @@ display:flex;
 }
 
 .new_post table {
-		margin:4%;
+		margin:1%;
+		width:80%;
 	border-radius:10px;
 	  border: 1px solid #848484;
 	background-color:#e4e4e4;
@@ -195,9 +205,9 @@ display:flex;
 }
 
 footer{
-  border-top: 5px solid #80c9c6;
+  border-top: 5px solid #80b1c9;
   text-align: center;
-  background-color: #c8e5e9;
+  background-color: #b1d7ea;
   padding:0.5%;
 }
 
