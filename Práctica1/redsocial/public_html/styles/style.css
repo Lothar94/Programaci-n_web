@@ -8,6 +8,7 @@ body {
   height:100%;
 }
 
+
 input {
 	border-radius: 5px;
 	border: 2px solid #80b1c9;
@@ -21,6 +22,7 @@ table img{
 
 a:link {
 	text-decoration:none;
+	color:black;
 }
 
 a:visited {
@@ -155,6 +157,15 @@ aside img {
   flex-wrap: wrap;
 }
 
+.personal_data {
+	margin:0 auto;
+	width: 80%;
+}
+
+main h2 {
+	margin: 2% 10%;
+}
+
 .index_main {
 display:flex;
   flex-wrap: wrap;
@@ -194,6 +205,22 @@ display:flex;
   margin: 1%;
 }
 
+.photos {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.photos article {
+  margin: 1%;
+  padding:1%;
+  width: 23%;
+}
+
+.photos img {
+  border-radius:20px;
+}
+
 .arrows {
 	margin: 0 auto 0 auto;
 	width: 10%;
@@ -216,6 +243,12 @@ display:flex;
 	border: 1px solid #848484;
 	background-color:#e4e4e4;
 	padding:1%;
+}
+
+.post_img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
 }
 
 .comments {
