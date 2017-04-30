@@ -1,0 +1,385 @@
+/*Reglas CSS comunes a todos las vistas*/
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  background-color: #efefef;
+  margin:0;
+  height:100%;
+}
+
+
+input {
+	border-radius: 5px;
+	border: 2px solid #80b1c9;
+	color:#3f6261;
+	padding: 7px;
+}
+
+table img{
+	border-radius:100%;
+}
+
+a:link {
+	text-decoration:none;
+	color:black;
+}
+
+a:visited {
+	color:black;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+.submitButton, .resetButton  {
+	background-color:#80b1c9;
+	font-size: 80%;
+	transition: all 0.5s ease 0s;
+}
+
+.articles {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.submitButton:hover, .resetButton:hover  {
+	background-color:#ffffff;
+}
+
+.header_section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-bottom: 5px solid #80b1c9;
+  background-color: #333333;
+  color: #f6f6f6;
+}
+
+.header_section * {
+  margin:auto;
+  text-align: center;
+}
+
+.header_section form {
+	margin:1% auto;
+}
+
+.header_section a {
+	color: #f6f6f6;
+}
+
+.header_section a:hover {
+	text-decoration:none;
+}
+
+.header_section h2:hover {
+  border: 1px solid #80b1c9;
+  background-color: #80b1c9;
+}
+
+.roboLogo {
+	border-radius: 0px 0px 100px 100px;
+}
+
+.navigation_bar a:hover {
+	text-decoration:none;
+}
+
+.users {
+	overflow:scroll;
+	background-color:#e4e4e4;
+}
+
+.users table {
+	display:inline;
+	text-align:center;
+	margin:1%;
+}
+
+.users img {
+	margin: 10% auto 10% auto;
+	border-radius:100%;
+}
+
+aside table {
+	text-align:center;
+	margin:auto;
+}
+
+aside img {
+	display:block;
+	margin: 10% auto 10% auto;
+	border-radius:100%;
+}
+
+.comments_main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.personal_data {
+	margin: 2% auto;
+	width: 80%;
+}
+
+main h2 {
+	margin: 2% 10%;
+}
+
+.index_main {
+	display:flex;
+  flex-wrap: wrap;
+  align-items:center;
+  justify-content:center;
+  padding:5%;
+}
+
+.index_main section{
+	margin: auto;
+}
+
+.articles a:link {
+	color: black;
+}
+
+.articles a:visited {
+	color: black;
+}
+
+.articles a:hover {
+	text-decoration:underline;
+}
+
+.photos {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content:center;
+}
+
+.photos article {
+  margin: 1%;
+  padding:1%;
+}
+
+.photos img {
+  border-radius:20px;
+}
+
+.arrows {
+	margin: 0 auto 0 auto;
+	text-align:center
+}
+
+.arrows li {
+	display:inline;
+	margin: 0 1%;
+	transition: all 0.5s ease 0s;
+}
+
+.arrows li:hover {
+	filter:saturate(2);
+}
+
+.post_info {
+	margin: 0 auto 0 auto;
+	width:80%;
+	border-radius:10px;
+	border: 1px solid #848484;
+	background-color:#e4e4e4;
+	padding:1%;
+}
+
+.post_img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+
+.comments {
+	border-bottom: 2px solid #848484;
+	width: 80%;
+	margin: 0 auto 0 auto;
+}
+
+.comments table {
+	margin:2%;
+	text-align:left;
+}
+
+.comment {
+	margin: 2% auto;
+	width:80%;
+}
+
+.comment textarea {
+	height:100px;
+	width:500px;
+}
+
+.new_post table {
+	margin: 1% auto;
+	width:79%;
+	border-radius:10px;
+	border: 1px solid #848484;
+	background-color:#e4e4e4;
+	padding:1%;
+}
+
+.new_post input {
+	width:20%;
+}
+
+.new_post textarea {
+	height:100px;
+	width:500px;
+}
+
+footer{
+  border-top: 5px solid #80b1c9;
+  text-align: center;
+  background-color: #b1d7ea;
+  padding:0.5%;
+}
+
+footer li{
+  display: inline;
+}
+
+/* Reglas CSS que se toman cuando la web supera los 650 piexeles de ancho*/
+
+@media only screen and (min-width: 650px){
+
+	.header_section h2 {
+		padding: 1% 2%;
+		width: 15%;
+		transform: translateX(-12%);
+		border: 1px solid #f6f6f6;
+		color: #f6f6f6;
+		border-radius:10px;
+		transition: all 0.5s ease 0s;
+	}
+
+	.navigation_bar {
+	  text-align: center;
+	  background-color:#efefef;
+	  padding:1px;
+	}
+
+	.navigation_bar ul {
+		padding:0;
+	}
+
+	.navigation_bar li {
+		display:inline;
+		margin: 0 2%;
+	}
+
+	.navigation_bar li:hover {
+		border-bottom: 4px solid #80b1c9;
+		margin: -5px 2%;
+	}
+
+	.Ausers_button {
+		display:none;
+	}
+
+	aside {
+		overflow-y:scroll;
+		float:right;
+		text-align:center;
+		border: 1px solid #848484;
+		height:800px;
+		margin:5% 5% 5% 0;
+		padding:1%;
+		border-radius:10px;
+		background-color:#e4e4e4;
+	}
+
+	.articles article {
+		padding:1%;
+		background-color:#e4e4e4;
+	  width: 23%;
+	  border: 1px solid #848484;
+	  border-radius:10px;
+	  margin: 1%;
+	}
+}
+
+/* Reglas CSS que se toman cuando la web no supera los 650 piexeles de ancho*/
+
+@media only screen and (max-width: 650px) {
+	.header_section h2 {
+		display:none;
+		padding: 1% 2%;
+		width: 15%;
+		transform: translateX(-12%);
+		border: 1px solid #f6f6f6;
+		color: #f6f6f6;
+		border-radius:10px;
+		transition: all 0.5s ease 0s;
+	}
+
+	.navigation_bar {
+	  text-align: center;
+	  background-color:#efefef;
+	}
+
+	.navigation_bar ul {
+		padding:0;
+	}
+
+	.navigation_bar li {
+		display:block;
+		padding: 2% 0;
+		transition: all 0.5s ease 0s;
+	}
+
+	.navigation_bar li:hover {
+		background-color:#e0dede;
+	}
+
+	.Ausers_button {
+		display:block;
+		padding: 10%;
+		z-index: 1;
+		background-color:#e4e4e4;
+		border-radius: 10%;
+		border: 1px solid black;
+		text-align: center;
+	}
+
+	aside {
+		z-index: 1;
+		display:none;
+		overflow-y:scroll;
+		float:right;
+		text-align:center;
+		border: 1px solid #848484;
+		height:800px;
+		margin:5% 5% 5% 0;
+		padding:1%;
+		border-radius:10px;
+		background-color:#e4e4e4;
+	}
+
+	aside:hover {
+		display:block;
+	}
+
+	.Ausers_button:hover ~ aside {
+		display:block;
+	}
+
+	.articles article {
+		padding:1%;
+		background-color:#e4e4e4;
+	  border: 1px solid #848484;
+	  border-radius:10px;
+	  margin: 3%;
+	}
+}
