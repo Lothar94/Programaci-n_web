@@ -10,21 +10,40 @@
     <title>Inicio</title>
   </head>
   <body class = "container">
+    <?php
+    echo $_COOKIE["usermail"];
+    echo $_COOKIE["password"];
+      if(isset($_COOKIE["usermail"]) && isset($_COOKIE["password"])){
+        if(!empty($_COOKIE["usermail"]) && !empty($_COOKIE["password"]))
+          header("Location: ./portada.php");
+      }
+    ?>
     <header>
       <section class = "header_section">
         <a href = "index.html"><img src = "./img/logo.png" width = "250" height = "100" alt = "Logo"></a>
         <h2><a href = "index.html">Social Network</a></h2>
-        <form action = "portada.html" method = "post" name = "Inscription">
-          <label for = "nameField">Usuario:</label>
+        <form action = "login.php" method = "post" name = "Inscription">
+          <label for = "emailField">Dirección de correo:</label>
           <br>
-          <input type = "text" id = "username" name = "Inscription" value = "p.e: Juan" />
-          <br>
-          <br>
-          <label for = "secondNameField">Contraseña:</label>
-          <br>
-          <input type = "text" id = "password" name = "Inscription" value = "p.e. García" />
+          <input type = "text" name = "email" value = "p.e: Juan" required/>
           <br>
           <br>
+          <label for = "passwordField">Contraseña:</label>
+          <br>
+          <input type = "text" name = "password" value = "p.e. García" required/>
+          <br>
+          <br>
+          <label for = "loggingChecker">Recordar la sesión:</label>
+          <input type="checkbox" name="rememberSession" value="si">
+          <br>
+          <br>
+          <?php
+            if(!empty($_GET["error"]) && $_GET["error"] == 1){
+              echo "La dirección de correo introducida no se encuentra.<br><br>";
+            } elseif (!empty($_GET["error"]) && $_GET["error"] == 2) {
+              echo "La contraseña no es correcta.<br><br>";
+            }
+          ?>
           <input type = "submit" class = "submitButton" name = "Inscription" value = "Enviar formulario" />
         </form>
       </section>

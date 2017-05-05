@@ -7,18 +7,26 @@
     private $last_name;
     private $phone;
     private $borndate;
+    private $password;
+    private $meeting;
 
-    public function __construct($id, $name, $email, $last_name, $phone, $borndate){
+    public function __construct($name, $last_name, $email, $password, $phone, $meeting, $borndate, $id){
       $this->id = $id;
       $this->name = $name;
       $this->email = $email;
       $this->last_name = $last_name;
+      $this->password = $password;
       $this->phone = $phone;
       $this->borndate = $borndate;
+      $this->meeting = $meeting;
     }
 
     public function get_id(){
       return $this->id;
+    }
+
+    public function get_password(){
+      return $this->password;
     }
 
     public function get_name(){
@@ -39,10 +47,6 @@
 
     public function get_borndate(){
       return $this->borndate;
-    }
-
-    public function change_img(){
-
     }
 
     public function set_email($email){

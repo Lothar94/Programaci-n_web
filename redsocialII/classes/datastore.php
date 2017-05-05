@@ -1,5 +1,6 @@
 <?php
   require_once("./classes/post.php");
+  require_once("./classes/user.php");
 
   class DataStore{
 
@@ -49,8 +50,8 @@
       $this->instant_query($SQL_query);
     }
 
-    public function update_user($id, $name, $email, $phone){
-      $SQL_query = "UPDATE `users` SET `Name`=\"$name\", `Email`=\"$email\", `Phone`=\"$phone\" WHERE id = $id";
+    public function update_user($id, $name, $last_name, $email, $password, $borndate, $phone){
+      $SQL_query = "UPDATE `users` SET `Name`=\"$name\",`Last Name`=\"$last_name\",`Email`=\"$email\",`Password`=\"$password\",`Phone`=\"$phone\",`borndate`=DATE(\"$borndate\") WHERE id=$id";
       $this->instant_query($SQL_query);
     }
 
@@ -75,19 +76,36 @@
       $SQL_query = "SELECT * from users";
       $user_result = $this->instant_query($SQL_query);
       while($row = $user_result->fetch_array(MYSQLI_NUM)){
-        array_push($users, new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]));
+        array_push($users, new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]));
       }
       $user_result->free();
-      return $posts;
+      return $users;
     }
 
-    public function get_user($name){
-      $SQL_query = "SELECT * from users where name = $name";
+    public function get_user($email){
+      $SQL_query = "SELECT * FROM `users` WHERE Email=\"".$email."\"";
       $user_result = $this->instant_query($SQL_query);
       $row = $user_result->fetch_array(MYSQLI_NUM);
-      $user = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]);
+      if(empty($row)){
+        $user = null;
+      } else{
+        $user = new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]);
+      }
       $user_result->free();
       return $user;
+    }
+
+    public function get_posts_by_user($email){
+      $posts = array();
+      $user = $this->get_user($email);
+      $SQL_query = "SELECT * from posts WHERE user_id=".$user->get_id();
+      echo $SQL_query;
+      $posts_results = $this->instant_query($SQL_query);
+      while($row = $posts_results->fetch_array(MYSQLI_NUM)){
+        array_push($posts, new Post($row[0], $row[1], $row[2], $row[3], $row[4], $row[5]));
+      }
+      $posts_results->free();
+      return $posts;
     }
   }
 ?>
