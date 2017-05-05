@@ -26,7 +26,7 @@
                   <td><a href = \"".$usermail.".php\">".$user->get_name()."</a></td>
                 </tr>
                 <tr>
-                  <td><a href = \"".$usermail.".php\"><img src = \"./img/".$usermail.".png\" alt = \"Imagen de ".$user->get_name()."\"></a></td>
+                  <td><a href = \"".$usermail.".php\"><img src = \"./img/".$usermail.".png\" height = 64 width = 64 alt = \"Imagen de ".$user->get_name()."\"></a></td>
                 </tr>
                 <tr>
                   <td><a href = \"disconnect.php\">bye, bye...</a></td>
@@ -53,7 +53,7 @@
                     <td><a href = \"".$usermail.".php\">".$users[$i]->get_name()."</a></td>
                   </tr>
                   <tr>
-                    <td><a href = \"".$usermail.".php\"><img src = \"./img/".$usermail.".png\" alt = \"Imagen de ".$users[$i]->get_name()."\"></a></td>
+                    <td><a href = \"".$usermail.".php\"><img src = \"./img/".$usermail.".png\" height = 64 width = 64 alt = \"Imagen de ".$users[$i]->get_name()."\"></a></td>
                   </tr>
                 </table>";
         }
@@ -62,100 +62,18 @@
     <h5 class = "Ausers_button" >Usuarios activos</h5>
     <aside>
       <h5>Usuarios activos:</h5>
-      <table>
-        <tr>
-          <td><a href = "Pepe.html">Pepe</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Pepe.html"><img src = "./img/Pepe.png" alt = "Imagen de Pepe"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Nico.html">Nico</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Nico.html"><img src = "./img/Nico.png" alt = "Imagen de Nico"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Andrea.html">Andrea</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Andrea.html"><img src = "./img/Andrea.png" alt = "Imagen de Andrea"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Pepe.html">Pepe</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Pepe.html"><img src = "./img/Pepe.png" alt = "Imagen de Pepe"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Nico.html">Nico</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Nico.html"><img src = "./img/Nico.png" alt = "Imagen de Nico"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Andrea.html">Andrea</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Andrea.html"><img src = "./img/Andrea.png" alt = "Imagen de Andrea"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Pepe.html">Pepe</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Pepe.html"><img src = "./img/Pepe.png" alt = "Imagen de Pepe"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Nico.html">Nico</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Nico.html"><img src = "./img/Nico.png" alt = "Imagen de Nico"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Andrea.html">Andrea</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Andrea.html"><img src = "./img/Andrea.png" alt = "Imagen de Andrea"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Pepe.html">Pepe</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Pepe.html"><img src = "./img/Pepe.png" alt = "Imagen de Pepe"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Nico.html">Nico</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Nico.html"><img src = "./img/Nico.png" alt = "Imagen de Nico"></a></td>
-        </tr>
-      </table>
-      <table>
-        <tr>
-          <td><a href = "Andrea.html">Andrea</a></td>
-        </tr>
-        <tr>
-          <td><a href = "Andrea.html"><img src = "./img/Andrea.png" alt = "Imagen de Andrea"></a></td>
-        </tr>
-      </table>
+      <?php
+        $users = $conection->get_users_loged();
+        for ($i=0; $i < sizeof($users); $i++) {
+          $usermail = explode("@", $users[$i]->get_email())[0];
+          echo "<table>
+                  <tr>
+                    <td><a href = \"".$usermail.".php\">".$users[$i]->get_name()."</a></td>
+                  </tr>
+                  <tr>
+                    <td><a href = \"".$usermail.".php\"><img src = \"./img/".$usermail.".png\" height = 64 width = 64 alt = \"Imagen de ".$users[$i]->get_name()."\"></a></td>
+                  </tr>
+                </table>";
+        }
+      ?>
     </aside>

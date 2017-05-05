@@ -15,6 +15,7 @@
         setcookie("usermail", $_POST["email"], false);
         setcookie("password", md5($_POST["password"]), false);
       }
+      $conection->active_user($_POST["email"]);
       header("Location: ./portada.php");
     } else {
       echo "error 2";

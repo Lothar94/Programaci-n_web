@@ -32,5 +32,5 @@
     }
   }
 
-  //header("Location: ./informacion.php");
+  header("Location: ./informacion.php");
 ?>

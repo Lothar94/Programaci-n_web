@@ -60,6 +60,27 @@
       $this->instant_query($SQL_query);
     }
 
+    public function active_user($email){
+      $SQL_query = "UPDATE `users` SET `active`=1 WHERE Email=\"$email\"";
+      $this->instant_query($SQL_query);
+    }
+
+    public function unactive_user($email){
+      $SQL_query = "UPDATE `users` SET `active`=0 WHERE Email=\"$email\"";
+      $this->instant_query($SQL_query);
+    }
+
+    public function get_users_loged(){
+      $users = array();
+      $SQL_query = "SELECT * from users WHERE active=1";
+      $user_result = $this->instant_query($SQL_query);
+      while($row = $user_result->fetch_array(MYSQLI_NUM)){
+        array_push($users, new User($row[0], $row[1], $row[2], $row[3], $row[4], $row[5], $row[6], $row[7]));
+      }
+      $user_result->free();
+      return $users;
+    }
+
     public function get_posts(){
       $posts = array();
       $SQL_query = "SELECT * from posts";

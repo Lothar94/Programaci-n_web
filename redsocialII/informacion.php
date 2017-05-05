@@ -16,8 +16,8 @@ $usermail = explode("@", $user->get_email())[0];
               <td>Cambia la imagen:</td>
             </tr>
             <tr>
-              <td><a href = "<?php echo $usermail.".php"; ?>"><img src = "<?php echo "./img/".$usermail.".png"; ?>" alt = "Imagen de <?php echo $user->get_name(); ?>"></a></td>
-              <td><input type = "file" name = "fileToUpload" id = "fileToUpload"></td>
+              <td><a href = "<?php echo $usermail.".php"; ?>"><img src = "<?php echo "./img/".$usermail.".png"; ?>" height = 64 width = 64 alt = "Imagen de <?php echo $user->get_name(); ?>"></a></td>
+              <td><input type = "file" name = "fileToUpload" id = "fileToUpload"/></td>
             </tr>
           </table>
           <label for = "nameField">Nombre:</label>
